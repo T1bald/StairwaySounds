@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ss-parent</artifactId>
+        <groupId>com.bionicuniversity.stairway.sounds</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>ss-ear</artifactId>
+    <packaging>ear</packaging>
+
+    <name>StairwaySounds Ear Module</name>
+    <url>https://github.com/T1bald/StairwaySounds</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <stairway.sounds.version>1.0-SNAPSHOT</stairway.sounds.version>
+    </properties>
+
+    <dependencies>
+        <!-- Ejb Module -->
+        <dependency>
+            <groupId>com.bionicuniversity.stairway.sounds</groupId>
+            <artifactId>ss-core-ejb</artifactId>
+            <version>${stairway.sounds.version}</version>
+            <type>ejb</type>
+        </dependency>
+
+        <!-- War Module -->
+        <dependency>
+            <groupId>com.bionicuniversity.stairway.sounds</groupId>
+            <artifactId>ss-general-web</artifactId>
+            <version>${stairway.sounds.version}</version>
+            <type>war</type>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.9.1</version>
+                <configuration>
+                    <modules>
+                        <webModule>
+                            <groupId>com.bionicuniversity.stairway.sounds</groupId>
+                            <artifactId>ss-general-web</artifactId>
+                        </webModule>
+                        <ejbModule>
+                            <groupId>com.bionicuniversity.stairway.sounds</groupId>
+                            <artifactId>ss-core-ejb</artifactId>
+                        </ejbModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
