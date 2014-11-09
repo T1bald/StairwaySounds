@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="SSPUnit" transaction-type="JTA">
+        <jta-data-source>jdbc/stairway_sounds</jta-data-source>
+        <class>com.bionicuniversity.stairway.sounds.entity.AccessModifiers</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Albums</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Artists</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Hashtags</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Playlists</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Raitings</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Roles</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Styles</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Tracks</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.TracksAdditionalInfo</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.TracksHaveHashtags</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.TracksHaveStyles</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.TracksInPlaylists</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.Users</class>
+        <class>com.bionicuniversity.stairway.sounds.entity.UsersSubscribeHashtags</class>
+        <exclude-unlisted-classes>false</exclude-unlisted-classes>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/stairway_sounds"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="ss_admin"/>
+            <property name="hibernate.connection.password" value="ss_admin_password"/>
+        </properties>
+    </persistence-unit>
+</persistence>
