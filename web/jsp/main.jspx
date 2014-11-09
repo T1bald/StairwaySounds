@@ -1,0 +1,38 @@
+<!--
+  Created by IntelliJ IDEA.
+  User: matvey
+  Date: 21.10.14
+  Time: 11:54
+  To change this template use File | Settings | File Templates.
+-->
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          version="2.0">
+
+
+    <jsp:directive.page contentType="text/html" pageEncoding="UTF-8"/>
+
+    <html>
+    <head><title>Simple jspx page</title></head>
+
+    <body>
+        <div class = "headers" style ="width : 100%">
+            <h3>
+                <c:out value="${user}, hello!" default="NoName." />
+                <br/>
+            </h3>
+        </div>
+            <div class="content">
+                <p1><c:out value="Your id : ${user.idUser} "/></p1>
+                <br/>
+                <p1><c:out value="Registred on ${user.email}"/></p1>
+            </div>
+
+        <div class="footer">
+
+            <address></address>
+        </div>
+    </body>
+    </html>
+
+</jsp:root>
