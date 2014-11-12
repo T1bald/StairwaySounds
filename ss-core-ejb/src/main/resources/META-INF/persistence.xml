@@ -5,11 +5,5 @@
         <jta-data-source>ssResource</jta-data-source>
         <class>com.bionicuniversity.stairway.sounds.entity.User</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <!--<properties>-->
-            <!--<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/stairway_sounds"/>-->
-            <!--<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>-->
-            <!--<property name="hibernate.connection.username" value="ss_admin"/>-->
-            <!--<property name="hibernate.connection.password" value="ss_admin_password"/>-->
-        <!--</properties>-->
     </persistence-unit>
 </persistence>
