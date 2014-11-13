@@ -17,7 +17,7 @@ public class UserFacade implements UserFacadeLocal{
     private EntityManager entityManager;
 
     @Override
-    public User findById(int id) {
+    public User findById(Integer id) {
         return entityManager.find(User.class, id);
     }
 

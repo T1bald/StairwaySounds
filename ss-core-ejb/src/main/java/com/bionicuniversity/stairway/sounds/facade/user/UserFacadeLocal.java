@@ -10,6 +10,6 @@ import javax.ejb.Local;
 
 @Local
 public interface UserFacadeLocal {
-    User findById(int id);
+    User findById(Integer id);
     void save(User user);
 }
