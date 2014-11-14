@@ -7,23 +7,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "roles")
-public class Role {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_role", nullable = false, insertable = true, updatable = true)
-    private Integer idRole;
+@AttributeOverride(name = "id", column = @Column(name = "id_role"))
+public class Role extends AbstractEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    public Integer getIdRole() {
-        return idRole;
-    }
-
-    public void setIdRole(Integer idRole) {
-        this.idRole = idRole;
-    }
 
     public String getName() {
         return name;
@@ -37,10 +25,10 @@ public class Role {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         Role role = (Role) o;
 
-        if (idRole != null ? !idRole.equals(role.idRole) : role.idRole != null) return false;
         if (name != null ? !name.equals(role.name) : role.name != null) return false;
 
         return true;
@@ -48,8 +36,17 @@ public class Role {
 
     @Override
     public int hashCode() {
-        int result = idRole != null ? idRole.hashCode() : 0;
+        int result = super.hashCode();
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Role{");
+        sb.append("name='").append(name).append('\'');
+        sb.append("} ");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

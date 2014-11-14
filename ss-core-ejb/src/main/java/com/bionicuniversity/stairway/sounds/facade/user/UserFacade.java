@@ -1,6 +1,7 @@
 package com.bionicuniversity.stairway.sounds.facade.user;
 
 import com.bionicuniversity.stairway.sounds.entity.User;
+import com.bionicuniversity.stairway.sounds.facade.AbstractFacade;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -11,10 +12,14 @@ import javax.persistence.PersistenceContext;
  */
 
 @Stateless
-public class UserFacade implements UserFacadeLocal{
+public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal{
 
     @PersistenceContext(unitName = "SSPUnit")
     private EntityManager entityManager;
+
+    public UserFacade() {
+        super(User.class);
+    }
 
     @Override
     public User findById(Integer id) {
@@ -24,5 +29,10 @@ public class UserFacade implements UserFacadeLocal{
     @Override
     public void save(User user) {
         entityManager.persist(user);
+    }
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return entityManager;
     }
 }

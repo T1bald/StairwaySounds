@@ -7,23 +7,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "access_modifiers")
-public class AccessModifier {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_access_modifier")
-    private Integer accessModifierId;
+@AttributeOverride(name = "id", column = @Column(name = "id_access_modifier"))
+public class AccessModifier extends AbstractEntity {
 
     @Column(name = "name", nullable = false)
     private String name;
-
-    public Integer getAccessModifierId() {
-        return accessModifierId;
-    }
-
-    public void setAccessModifierId(Integer idAccessModifier) {
-        this.accessModifierId = idAccessModifier;
-    }
 
     public String getName() {
         return name;
@@ -37,11 +25,10 @@ public class AccessModifier {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         AccessModifier that = (AccessModifier) o;
 
-        if (accessModifierId != null ? !accessModifierId.equals(that.accessModifierId) : that.accessModifierId != null)
-            return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
@@ -49,8 +36,17 @@ public class AccessModifier {
 
     @Override
     public int hashCode() {
-        int result = accessModifierId != null ? accessModifierId.hashCode() : 0;
+        int result = super.hashCode();
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("AccessModifier{");
+        sb.append("name='").append(name).append('\'');
+        sb.append("} ");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

@@ -7,12 +7,8 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "tracks_additional_info")
-public class TrackAdditionalInfo {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_additional_info")
-    private Integer additionalInfoId;
+@AttributeOverride(name = "id", column = @Column(name = "id_additional_info"))
+public class TrackAdditionalInfo extends AbstractEntity {
 
     @Column(name = "country")
     private String country;
@@ -25,14 +21,6 @@ public class TrackAdditionalInfo {
 
     @Column(name = "label")
     private String label;
-
-    public Integer getAdditionalInfoId() {
-        return additionalInfoId;
-    }
-
-    public void setAdditionalInfoId(Integer idAdditionalInfo) {
-        this.additionalInfoId = idAdditionalInfo;
-    }
 
     public String getCountry() {
         return country;
@@ -70,12 +58,11 @@ public class TrackAdditionalInfo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         TrackAdditionalInfo that = (TrackAdditionalInfo) o;
 
         if (country != null ? !country.equals(that.country) : that.country != null) return false;
-        if (additionalInfoId != null ? !additionalInfoId.equals(that.additionalInfoId) : that.additionalInfoId != null)
-            return false;
         if (label != null ? !label.equals(that.label) : that.label != null) return false;
         if (language != null ? !language.equals(that.language) : that.language != null) return false;
         if (yearOfIssue != null ? !yearOfIssue.equals(that.yearOfIssue) : that.yearOfIssue != null) return false;
@@ -85,11 +72,23 @@ public class TrackAdditionalInfo {
 
     @Override
     public int hashCode() {
-        int result = additionalInfoId != null ? additionalInfoId.hashCode() : 0;
+        int result = super.hashCode();
         result = 31 * result + (country != null ? country.hashCode() : 0);
         result = 31 * result + (language != null ? language.hashCode() : 0);
         result = 31 * result + (yearOfIssue != null ? yearOfIssue.hashCode() : 0);
         result = 31 * result + (label != null ? label.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("TrackAdditionalInfo{");
+        sb.append("country='").append(country).append('\'');
+        sb.append(", language='").append(language).append('\'');
+        sb.append(", yearOfIssue='").append(yearOfIssue).append('\'');
+        sb.append(", label='").append(label).append('\'');
+        sb.append("} ");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

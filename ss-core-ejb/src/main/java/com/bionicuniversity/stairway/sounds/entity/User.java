@@ -6,14 +6,11 @@ import java.util.List;
 /**
  * Created by happy on 13/11/2014.
  */
+
 @Entity
 @Table(name = "users")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_user")
-    private Integer userId;
+@AttributeOverride(name = "id", column = @Column(name = "id_user"))
+public class User extends AbstractEntity {
 
     @Column(name = "email")
     private String email;
@@ -41,14 +38,6 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "hashtag_id", referencedColumnName = "id_hashtag")
     )
     private List<Hashtag> subscribedHashTagList;
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer idUser) {
-        this.userId = idUser;
-    }
 
     public String getEmail() {
         return email;
@@ -120,7 +109,6 @@ public class User {
         if (role != null ? !role.equals(user.role) : user.role != null) return false;
         if (subscribedHashTagList != null ? !subscribedHashTagList.equals(user.subscribedHashTagList) : user.subscribedHashTagList != null)
             return false;
-        if (userId != null ? !userId.equals(user.userId) : user.userId != null) return false;
         if (username != null ? !username.equals(user.username) : user.username != null) return false;
 
         return true;
@@ -128,8 +116,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = userId != null ? userId.hashCode() : 0;
-        result = 31 * result + (email != null ? email.hashCode() : 0);
+        int result = email != null ? email.hashCode() : 0;
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (passHash != null ? passHash.hashCode() : 0);
         result = 31 * result + (passSalt != null ? passSalt.hashCode() : 0);
@@ -141,15 +128,16 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", email='" + email + '\'' +
-                ", username='" + username + '\'' +
-                ", passHash='" + passHash + '\'' +
-                ", passSalt='" + passSalt + '\'' +
-                ", role=" + role +
-                ", playlistList=" + playlistList +
-                ", subscribedHashTagList=" + subscribedHashTagList +
-                '}';
+        final StringBuilder sb = new StringBuilder("User{");
+        sb.append("email='").append(email).append('\'');
+        sb.append(", username='").append(username).append('\'');
+        sb.append(", passHash='").append(passHash).append('\'');
+        sb.append(", passSalt='").append(passSalt).append('\'');
+        sb.append(", role=").append(role);
+        sb.append(", playlistList=").append(playlistList);
+        sb.append(", subscribedHashTagList=").append(subscribedHashTagList);
+        sb.append("} ");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

@@ -8,12 +8,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "tracks")
-public class Track {
-
-    @Id
-    @Column(name = "id_track")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer trackId;
+@AttributeOverride(name = "id", column = @Column(name = "id_track"))
+public class Track extends AbstractEntity {
 
     @Column(name = "track_name")
     private String trackName;
@@ -52,14 +48,6 @@ public class Track {
             inverseJoinColumns = @JoinColumn(name = "styles_id", referencedColumnName = "id_style")
     )
     private  List<Style> styleList;
-
-    public Integer getTrackId() {
-        return trackId;
-    }
-
-    public void setTrackId(Integer idTrack) {
-        this.trackId = idTrack;
-    }
 
     public String getTrackName() {
         return trackName;
@@ -137,6 +125,7 @@ public class Track {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         Track track = (Track) o;
 
@@ -149,7 +138,6 @@ public class Track {
         if (hashtagList != null ? !hashtagList.equals(track.hashtagList) : track.hashtagList != null) return false;
         if (raiting != null ? !raiting.equals(track.raiting) : track.raiting != null) return false;
         if (styleList != null ? !styleList.equals(track.styleList) : track.styleList != null) return false;
-        if (trackId != null ? !trackId.equals(track.trackId) : track.trackId != null) return false;
         if (trackName != null ? !trackName.equals(track.trackName) : track.trackName != null) return false;
 
         return true;
@@ -157,7 +145,7 @@ public class Track {
 
     @Override
     public int hashCode() {
-        int result = trackId != null ? trackId.hashCode() : 0;
+        int result = super.hashCode();
         result = 31 * result + (trackName != null ? trackName.hashCode() : 0);
         result = 31 * result + (filePath != null ? filePath.hashCode() : 0);
         result = 31 * result + (duration != null ? duration.hashCode() : 0);
@@ -172,17 +160,18 @@ public class Track {
 
     @Override
     public String toString() {
-        return "Track{" +
-                "trackId=" + trackId +
-                ", trackName='" + trackName + '\'' +
-                ", filePath='" + filePath + '\'' +
-                ", duration='" + duration + '\'' +
-                ", description='" + description + '\'' +
-                ", album=" + album +
-                ", raiting=" + raiting +
-                ", additionalInfo=" + additionalInfo +
-                ", hashtagList=" + hashtagList +
-                ", styleList=" + styleList +
-                '}';
+        final StringBuilder sb = new StringBuilder("Track{");
+        sb.append("trackName='").append(trackName).append('\'');
+        sb.append(", filePath='").append(filePath).append('\'');
+        sb.append(", duration='").append(duration).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", album=").append(album);
+        sb.append(", raiting=").append(raiting);
+        sb.append(", additionalInfo=").append(additionalInfo);
+        sb.append(", hashtagList=").append(hashtagList);
+        sb.append(", styleList=").append(styleList);
+        sb.append("} ");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

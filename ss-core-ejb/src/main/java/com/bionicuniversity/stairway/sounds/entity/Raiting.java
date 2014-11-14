@@ -7,23 +7,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "raitings")
-public class Raiting {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_raiting")
-    private Integer raitingId;
+@AttributeOverride(name = "id", column = @Column(name = "id_raiting"))
+public class Raiting extends AbstractEntity {
 
     @Column(name = "downloads")
     private Integer downloads;
-
-    public Integer getRaitingId() {
-        return raitingId;
-    }
-
-    public void setRaitingId(Integer idRaiting) {
-        this.raitingId = idRaiting;
-    }
 
     public Integer getDownloads() {
         return downloads;
@@ -37,19 +25,28 @@ public class Raiting {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         Raiting raiting = (Raiting) o;
 
         if (downloads != null ? !downloads.equals(raiting.downloads) : raiting.downloads != null) return false;
-        if (raitingId != null ? !raitingId.equals(raiting.raitingId) : raiting.raitingId != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = raitingId != null ? raitingId.hashCode() : 0;
+        int result = super.hashCode();
         result = 31 * result + (downloads != null ? downloads.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Raiting{");
+        sb.append("downloads=").append(downloads);
+        sb.append("} ");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

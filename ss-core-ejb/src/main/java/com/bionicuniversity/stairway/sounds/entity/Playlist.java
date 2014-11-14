@@ -8,12 +8,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "playlists")
-public class Playlist {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id_playlist")
-    private Integer playlistId;
+@AttributeOverride(name = "id", column = @Column(name = "id_playlist"))
+public class Playlist extends AbstractEntity {
 
     @Column(name = "name")
     private String name;
@@ -36,14 +32,6 @@ public class Playlist {
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id_user")
     private User owner;
-
-    public Integer getPlaylistId() {
-        return playlistId;
-    }
-
-    public void setPlaylistId(Integer idPlaylist) {
-        this.playlistId = idPlaylist;
-    }
 
     public String getName() {
         return name;
@@ -89,6 +77,7 @@ public class Playlist {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
         Playlist playlist = (Playlist) o;
 
@@ -97,16 +86,15 @@ public class Playlist {
         if (description != null ? !description.equals(playlist.description) : playlist.description != null)
             return false;
         if (name != null ? !name.equals(playlist.name) : playlist.name != null) return false;
-        if (playlistId != null ? !playlistId.equals(playlist.playlistId) : playlist.playlistId != null) return false;
-        if (trackList != null ? !trackList.equals(playlist.trackList) : playlist.trackList != null) return false;
         if (owner != null ? !owner.equals(playlist.owner) : playlist.owner != null) return false;
+        if (trackList != null ? !trackList.equals(playlist.trackList) : playlist.trackList != null) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result = playlistId != null ? playlistId.hashCode() : 0;
+        int result = super.hashCode();
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (accessModifier != null ? accessModifier.hashCode() : 0);
@@ -117,13 +105,14 @@ public class Playlist {
 
     @Override
     public String toString() {
-        return "Playlist{" +
-                "playlistId=" + playlistId +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", accessModifier=" + accessModifier +
-                ", trackList=" + trackList +
-                ", user=" + owner +
-                '}';
+        final StringBuilder sb = new StringBuilder("Playlist{");
+        sb.append("name='").append(name).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append(", accessModifier=").append(accessModifier);
+        sb.append(", trackList=").append(trackList);
+        sb.append(", owner=").append(owner);
+        sb.append("} ");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }
