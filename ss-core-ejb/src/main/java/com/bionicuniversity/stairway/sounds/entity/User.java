@@ -10,6 +10,9 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @AttributeOverride(name = "id", column = @Column(name = "id_user"))
+//@NamedQueries(
+//        @NamedQuery(name = "UserByEmail", query = "")
+//)
 public class User extends AbstractEntity {
 
     @Column(name = "email")
@@ -24,9 +27,16 @@ public class User extends AbstractEntity {
     @Column(name = "pass_salt", length = 45)
     private String passSalt;
 
-    @OneToOne
-    @JoinColumn(name = "role_id", referencedColumnName = "id_role")
-    private Role role;
+    @Column(name = "password", length = 64)
+    private String password;
+
+    @ManyToMany
+    @JoinTable(
+            name = "users_have_roles",
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id_role")
+    )
+    private List<Role> role;
 
     @OneToMany(mappedBy = "owner")
     private List<Playlist> playlistList;
@@ -71,11 +81,19 @@ public class User extends AbstractEntity {
         this.passSalt = passSalt;
     }
 
-    public Role getRole() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Role> getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(List<Role> role) {
         this.role = role;
     }
 

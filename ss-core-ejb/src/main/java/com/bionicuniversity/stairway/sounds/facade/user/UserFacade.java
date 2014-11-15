@@ -22,16 +22,6 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal{
     }
 
     @Override
-    public User findById(Integer id) {
-        return entityManager.find(User.class, id);
-    }
-
-    @Override
-    public void save(User user) {
-        entityManager.persist(user);
-    }
-
-    @Override
     protected EntityManager getEntityManager() {
         return entityManager;
     }

@@ -1,6 +1,7 @@
 package com.bionicuniversity.stairway.sounds.facade.user;
 
 import com.bionicuniversity.stairway.sounds.entity.User;
+import com.bionicuniversity.stairway.sounds.facade.GeneralFacadeLocal;
 
 import javax.ejb.Local;
 
@@ -9,7 +10,4 @@ import javax.ejb.Local;
  */
 
 @Local
-public interface UserFacadeLocal {
-    User findById(Integer id);
-    void save(User user);
-}
+public interface UserFacadeLocal extends GeneralFacadeLocal<User> {}

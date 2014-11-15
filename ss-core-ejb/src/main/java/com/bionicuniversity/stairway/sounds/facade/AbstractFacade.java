@@ -40,4 +40,5 @@ public abstract class AbstractFacade<T extends AbstractEntity> {
         getEntityManager().remove(entity);
         return entity;
     }
+
 }
