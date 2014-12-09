@@ -2,7 +2,46 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
-    <display-name>Archetype Created Web Application</display-name>
+
+    <display-name>JavaServerFaces</display-name>
+
+    <!-- Change to "Production" when you are ready to deploy -->
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+
+    <!-- Welcome page -->
+    <welcome-file-list>
+        <welcome-file>hello.xhtml</welcome-file>
+    </welcome-file-list>
+
+    <!-- JSF mapping -->
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Map these files with JSF -->
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.faces</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+
+    <!-- Security Configurations-->
     <security-constraint>
         <display-name>Administrator</display-name>
         <web-resource-collection>
@@ -44,10 +83,10 @@
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>stairway_sounds_jdbc_realm</realm-name>
-        <form-login-config>
-            <form-login-page>/pages/login.html</form-login-page>
-            <form-error-page>/pages/error.html?error=unknown</form-error-page>
-        </form-login-config>
+        <!--<form-login-config>-->
+            <!--<form-login-page>/pages/login.html</form-login-page>-->
+            <!--<form-error-page>/pages/error.html?error=unknown</form-error-page>-->
+        <!--</form-login-config>-->
     </login-config>
     <security-role>
         <role-name>Admin</role-name>
