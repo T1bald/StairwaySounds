@@ -3,29 +3,25 @@ package com.bionicuniversity.stairway.sounds.entity;
 import javax.persistence.*;
 
 /**
- * Created by happy on 09/11/2014.
+ * Created by happy on 13/11/2014.
  */
 @Entity
-@Table(name = "tracks_additional_info", schema = "", catalog = "stairway_sounds")
-public class TracksAdditionalInfo {
-    private Integer idAdditionalInfo;
+@Table(name = "tracks_additional_info")
+@AttributeOverride(name = "id", column = @Column(name = "id_additional_info"))
+public class TrackAdditionalInfo extends AbstractEntity {
+
+    @Column(name = "country")
     private String country;
+
+    @Column(name = "language")
     private String language;
+
+    @Column(name = "year_of_issue")
     private String yearOfIssue;
+
+    @Column(name = "label")
     private String label;
 
-    @Id
-    @Column(name = "id_additional_info")
-    public Integer getIdAdditionalInfo() {
-        return idAdditionalInfo;
-    }
-
-    public void setIdAdditionalInfo(Integer idAdditionalInfo) {
-        this.idAdditionalInfo = idAdditionalInfo;
-    }
-
-    @Basic
-    @Column(name = "country")
     public String getCountry() {
         return country;
     }
@@ -34,8 +30,6 @@ public class TracksAdditionalInfo {
         this.country = country;
     }
 
-    @Basic
-    @Column(name = "language")
     public String getLanguage() {
         return language;
     }
@@ -44,8 +38,6 @@ public class TracksAdditionalInfo {
         this.language = language;
     }
 
-    @Basic
-    @Column(name = "year_of_issue")
     public String getYearOfIssue() {
         return yearOfIssue;
     }
@@ -54,8 +46,6 @@ public class TracksAdditionalInfo {
         this.yearOfIssue = yearOfIssue;
     }
 
-    @Basic
-    @Column(name = "label")
     public String getLabel() {
         return label;
     }
@@ -68,12 +58,11 @@ public class TracksAdditionalInfo {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
 
-        TracksAdditionalInfo that = (TracksAdditionalInfo) o;
+        TrackAdditionalInfo that = (TrackAdditionalInfo) o;
 
         if (country != null ? !country.equals(that.country) : that.country != null) return false;
-        if (idAdditionalInfo != null ? !idAdditionalInfo.equals(that.idAdditionalInfo) : that.idAdditionalInfo != null)
-            return false;
         if (label != null ? !label.equals(that.label) : that.label != null) return false;
         if (language != null ? !language.equals(that.language) : that.language != null) return false;
         if (yearOfIssue != null ? !yearOfIssue.equals(that.yearOfIssue) : that.yearOfIssue != null) return false;
@@ -83,11 +72,23 @@ public class TracksAdditionalInfo {
 
     @Override
     public int hashCode() {
-        int result = idAdditionalInfo != null ? idAdditionalInfo.hashCode() : 0;
+        int result = super.hashCode();
         result = 31 * result + (country != null ? country.hashCode() : 0);
         result = 31 * result + (language != null ? language.hashCode() : 0);
         result = 31 * result + (yearOfIssue != null ? yearOfIssue.hashCode() : 0);
         result = 31 * result + (label != null ? label.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("TrackAdditionalInfo{");
+        sb.append("country='").append(country).append('\'');
+        sb.append(", language='").append(language).append('\'');
+        sb.append(", yearOfIssue='").append(yearOfIssue).append('\'');
+        sb.append(", label='").append(label).append('\'');
+        sb.append("} ");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }
