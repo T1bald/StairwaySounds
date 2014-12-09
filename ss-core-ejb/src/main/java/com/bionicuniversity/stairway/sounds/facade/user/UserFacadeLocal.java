@@ -11,3 +11,4 @@ import javax.ejb.Local;
 
 @Local
 public interface UserFacadeLocal extends GeneralFacadeLocal<User> {}
+
