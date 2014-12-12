@@ -3,6 +3,21 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
     <display-name>Archetype Created Web Application</display-name>
+    
+    <welcome-file-list>
+        <welcome-file>faces/index.xhtml</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>/faces/*</url-pattern>
+    </servlet-mapping>
+
     <security-constraint>
         <display-name>Administrator</display-name>
         <web-resource-collection>
@@ -25,6 +40,7 @@
         <auth-constraint>
             <description>Manager desc</description>
             <role-name>Manager</role-name>
+            <role-name>Admin</role-name>
         </auth-constraint>
     </security-constraint>
     <security-constraint>
@@ -39,14 +55,16 @@
         <auth-constraint>
             <description>User desc</description>
             <role-name>User</role-name>
+            <role-name>Manager</role-name>
+            <role-name>Admin</role-name>
         </auth-constraint>
     </security-constraint>
     <login-config>
         <auth-method>FORM</auth-method>
         <realm-name>stairway_sounds_jdbc_realm</realm-name>
         <form-login-config>
-            <form-login-page>/pages/login.html</form-login-page>
-            <form-error-page>/pages/error.html?error=unknown</form-error-page>
+            <form-login-page>/xhtml/login.html</form-login-page>
+            <form-error-page>/xhtml/error.html?error=unknown</form-error-page>
         </form-login-config>
     </login-config>
     <security-role>
@@ -60,6 +78,6 @@
     </security-role>
     <error-page>
         <error-code>403</error-code>
-        <location>/pages/403.html</location>
+        <location>/xhtml/403.html</location>
     </error-page>
 </web-app>

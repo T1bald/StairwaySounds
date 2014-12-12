@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Stairway Sounds</title>
+    </f:facet>
+
+    <f:facet name="second">
+        <h:outputStylesheet name="lib/bootstrap/css/bootstrap.css"/>
+        <h:outputStylesheet name="lib/jPlayer/skin/jplayer.blue.monday.css"/>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <script type="text/javascript" src="resources/lib/jPlayer/jquery.jplayer.js"/>
+
+        <h:outputScript name="lib/bootstrap/js/bootstrap.js"/>
+    </f:facet>
+
+
+</h:head>
+
+
+
+
+<h:body>
+    <ui:include src="xhtml/header.xhtml" />
+    <br/>
+    <ui:include src="xhtml/player.xhtml"/>
+    <br/>
+
+    <h:form>
+        <p:editor value="#{editor.value}" />
+    </h:form>
+
+</h:body>
+</html>

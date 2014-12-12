@@ -10,7 +10,6 @@ import javax.persistence.PersistenceContext;
 /**
  * Created by happy on 11/11/2014.
  */
-
 @Stateless
 public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal{
 
