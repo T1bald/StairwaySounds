@@ -11,7 +11,7 @@ $(document).ready(function(){
                 oga: "http://jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
             });
         },
-        swfPath: "resources/lib/jPlayer/jquery.jplayer.swf",
+        swfPath: "resources/customTheme/lib/jplayer/jquery.jplayer.swf",
         supplied: "m4a, oga",
         wmode: "window",
         useStateClassSkin: true,

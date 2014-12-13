@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Stairway Sounds</title>
+    </f:facet>
+
+    <f:facet name="second">
+        <h:outputStylesheet library="customTheme" name="css/reset.css"/>
+        <h:outputStylesheet library="customTheme" name="lib/bootstrap/amelia-theme/bootstrap.css"/>
+        <h:outputStylesheet name="customTheme/lib/jplayer/skin/jplayer.blue.monday.css"/>
+        <h:outputStylesheet library="customTheme" name="css/general-template.css"/>
+        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />-->
+        <!--<script type="text/javascript" src="resources/lib/jPlayer/jquery.jplayer.js"/>-->
+
+        <h:outputScript library="customTheme" name="lib/jquery/jquery-2.1.1.min.js" target="body"/>
+        <h:outputScript library="customTheme" name="lib/bootstrap/js/bootstrap.js" target="body"/>
+        <h:outputScript library="customTheme" name="lib/jplayer/jquery.jplayer.js" target="body"/>
+        <h:outputScript library="customTheme" name="js/player.js" target="body"/>
+    </f:facet>
+
+
+</h:head>
+
+
+
+
+<h:body>
+    <div id="header">
+        <ui:insert name="header">
+            <ui:include src="header.xhtml"/>
+        </ui:insert>
+    </div><div id="player">
+        <ui:insert name="player">
+            <ui:include src="player.xhtml"/>
+        </ui:insert>
+    </div>
+    <!--<div>-->
+    <!--<ui:include src="xhtml/player.xhtml"/>-->
+    <!--</div>-->
+    <!--<br/>-->
+    <!--<h:form>-->
+    <!--<p:editor value="#{editor.value}" />-->
+    <!--</h:form>-->
+
+</h:body>
+</html>
