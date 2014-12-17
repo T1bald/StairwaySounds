@@ -1,0 +1,31 @@
+
+body{
+    position: relative;
+    background: lightblue;
+}
+.b-layout_header{
+    position: relative;
+    margin: 0px;
+    width:1000px;
+    height: 300px;
+    background: lightblue;
+}
+.b-layout_header_title{
+    width: 600;
+
+}
+
+.b-layout_header_title h1{
+    color: forestgreen;
+    font-size: 24px;
+    font-family: "Times New Roman";
+}
+
+.b-layout_logo{
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+    height: 150px;
+    width: 200px;
+}

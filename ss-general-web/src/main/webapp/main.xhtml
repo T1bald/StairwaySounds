@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: root
+  Date: 10.12.14
+  Time: 20:33
+-->
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+    <title>Main</title>
+    <h:link rel="stylesheet" href="css/reset.css"/>
+    <h:link rel="stylesheet" href="css/main.css"/>
+
+</h:head>
+
+<h:body>
+   <div class="b-layout">
+       <div class="b-layout_header">
+       <p:toolbar>
+           <p:toolbarGroup align="center">
+               <p:outputLabel style="font-size: 45; font-style: italic">
+                   <h1>Stairway Sounds</h1></p:outputLabel>
+           </p:toolbarGroup>
+       </p:toolbar>
+       </div>
+        <div id="content">
+
+        <p:tabView>
+            <p:tab title="music">
+                    <h1>Filters</h1>
+                    <div id="filters">
+                       <ul>
+                           <li>filter 1</li>
+                           <li>filter 2</li>
+                           <li>filter 3</li>
+                           <li>filter 4</li>
+                       </ul>
+
+                    </div><br/>
+                    <div id="tracks">
+                        <h:outputText value="#{testBean.message}"/>
+                    </div><br/>
+            </p:tab>
+
+            <p:tab title="albums">
+                <ul>
+                    <li><h4>album 1</h4></li>
+                    <li><h4>album 2</h4></li>
+                    <li><h4>album 3</h4></li>
+                    <li><h4>album 4</h4></li>
+                </ul>
+            </p:tab>
+            <p:tab title="artists">
+                <ul>
+                    <li><h4>artist 1</h4></li>
+                    <li><h4>artist 2</h4></li>
+                    <li><h4>artist 3</h4></li>
+                    <li><h4>artist 4</h4></li>
+                </ul>
+            </p:tab>
+            <p:tab title="charts">
+                     <li><h4>MTV Chart</h4></li>
+                     <li><h4>Kiev M1 Chart</h4></li>
+                </p:tab>
+        </p:tabView>
+
+        <h:panelGrid columns="1" cellpadding="5">
+            <p:commandButton value="Basic" type="button" onclick="PF('dlg1').show();" />
+
+            <p:commandButton value="Modal" type="button" onclick="PF('dlg2').show();" />
+
+            <p:commandButton value="Effects" type="button" onclick="PF('dlg3').show();" />
+        </h:panelGrid>
+
+        <p:dialog header="Basic Dialog" widgetVar="dlg1" minHeight="40">
+            <h:outputText value="Resistance to PrimeFaces is futile!" />
+        </p:dialog>
+
+        <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
+            <h:outputText value="This is a Modal Dialog." />
+        </p:dialog>
+
+        <p:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
+            <h:outputText value="This dialog has nice effects." />
+        </p:dialog>
+        </div><br/>
+
+        <div id="footer">
+            <p:toolbar>
+                <p:toolbarGroup align="center">
+                    <p:outputLabel><h4>Bionic University
+                        Project 2014.</h4></p:outputLabel>
+                </p:toolbarGroup>
+            </p:toolbar>
+        </div><br/>
+    </div>
+</h:body>
+</html>
+

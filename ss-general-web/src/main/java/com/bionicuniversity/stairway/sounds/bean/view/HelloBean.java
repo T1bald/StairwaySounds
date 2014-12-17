@@ -1,4 +1,4 @@
-package com.bionicuniversity.stairway.sounds.logic;
+package com.bionicuniversity.stairway.sounds.bean.view;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

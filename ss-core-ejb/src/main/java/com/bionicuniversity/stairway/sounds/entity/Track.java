@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "tracks")
 @AttributeOverride(name = "id", column = @Column(name = "id_track"))
+@NamedQuery(name="findAll", query="select t from Track t")
 public class Track extends AbstractEntity {
 
     @Column(name = "track_name")
