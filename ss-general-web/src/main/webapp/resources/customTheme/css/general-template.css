@@ -1,11 +1,18 @@
+body {
+    background-color: #f2f2f2;
+}
 .navbar {
     margin-bottom: 0px;
 }
 .player-container {
     width: 100%;
-    height: 160px;
+    height: 60px;
     vertical-align: middle;
     text-align: center;
+}
+.cover {
+    width: 100px;
+    height: 100px;
 }
 .player-cover {
     /*width: 60px;*/
@@ -31,11 +38,13 @@
     line-height: 60px;
     font-size: 30px;
 }
-#unmute span{
+#unmute span,
+.jp-unmute span{
     color: #c9302c;
 }
-.player-progress {
-    width:750px;
+.player-progress,
+.jp-progress {
+    width:730px;
     height:10px;
     background-color: #222222;
     float: left;
@@ -44,7 +53,8 @@
     margin-right: 15px;
     border-radius: 2px;
 }
-.player-seek-bar {
+.player-seek-bar,
+.jp-seek-bar {
     width:0px;
     height:100%;
     cursor: pointer;
@@ -52,7 +62,8 @@
 #splitter {
     color: #222;
 }
-.player-play-bar {
+.player-play-bar,
+.jp-play-bar {
     background-color: #d2491c;
     width:0px;
     height:10px;
@@ -61,7 +72,8 @@
 
     border-radius: 2px;
 }
-.player-play-bar span {
+.player-play-bar span,
+.jp-play-bar span {
     position:absolute;
     top: -3px;
     right: -12px;
@@ -85,7 +97,8 @@
     text-align: center;
     width: 100%;
 }
-.player-volume-bar {
+.player-volume-bar,
+.jp-volume-bar {
     float:left;
     margin-top: 25px;
     margin-right: 15px;
@@ -97,15 +110,15 @@
     background: #222;
     border-radius:2px;
 }
-
-.player-volume-bar-value {
+.player-volume-bar-value,
+.jp-volume-bar-value {
     background: transparent;
     width:0px;
     height:10px;
     position: relative;
 }
-
-.player-volume-bar-value span {
+.player-volume-bar-value span,
+.jp-volume-bar-value span {
     position:absolute;
     top: 0px;
     right: 0px;
@@ -114,6 +127,61 @@
     width: 11px;
     height: 10px;
 }
-#repeat-off {
+#repeat-off,
+.jp-repeat-off {
     color: #008cba;
+}
+.jp-playlist-current {
+    background-color: #666;
+}
+#footer{
+    height: 60px;
+}
+.track-text {
+    height: 100px;
+    display: table;
+    margin-left: 40px;
+    text-align: left;
+}
+.track-details {
+    margin-top: 30px;
+    vertical-align: middle;
+    width: 415px;
+}
+.track-text a:link,
+.track-text a:visited,
+.track-text a:hover,
+.track-text a:active {
+    text-decoration: none;
+    font-size: 18px;
+    color: #222;
+    display: table-cell;
+    vertical-align: middle;
+}
+.jp-playlist-current div a:link,
+.jp-playlist-current div a:visited,
+.jp-playlist-current div a:active
+.jp-playlist-current div a:active {
+    font-size: 18px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    vertical-align: middle;
+}
+.jp-artist {
+    font-weight: bold;
+}
+.track-details {
+    text-align: right;
+}
+.track-item {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.brand {
+    font-size: 25px;
+    font-weight: bold;
+}
+.header {
+    font-size: 20px;
 }

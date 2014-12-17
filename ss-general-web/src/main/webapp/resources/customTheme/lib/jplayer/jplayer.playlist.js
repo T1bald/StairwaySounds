@@ -249,31 +249,32 @@
 			var self = this;
 
 			// Wrap the <li> contents in a <div>
-			var listItem = "<li><div>";
+			var listItem = "<li class='col-md-12 col-lg-12 track-item'><div class='cover col-md-4 col-lg-4' style='background: url(" + media.poster + ") no-repeat; background-size: 100%;'></div>";
 
 			// Create remove control
-			listItem += "<a href='javascript:;' class='" + this.options.playlistOptions.removeItemClass + "'>&times;</a>";
+//			listItem += "<a href='javascript:;' class='" + this.options.playlistOptions.removeItemClass + "'>&times;</a>";
 
 			// Create links to free media
-			if(media.free) {
-				var first = true;
-				listItem += "<span class='" + this.options.playlistOptions.freeGroupClass + "'>(";
-				$.each(media, function(property,value) {
-					if($.jPlayer.prototype.format[property]) { // Check property is a media format.
-						if(first) {
-							first = false;
-						} else {
-							listItem += " | ";
-						}
-						listItem += "<a class='" + self.options.playlistOptions.freeItemClass + "' href='" + value + "' tabindex='-1'>" + property + "</a>";
-					}
-				});
-				listItem += ")</span>";
-			}
+//			if(media.free) {
+//				var first = true;
+//				listItem += "<span class='" + this.options.playlistOptions.freeGroupClass + "'>(";
+//				$.each(media, function(property,value) {
+//					if($.jPlayer.prototype.format[property]) { // Check property is a media format.
+//						if(first) {
+//							first = false;
+//						} else {
+//							listItem += " | ";
+//						}
+//						listItem += "<a class='" + self.options.playlistOptions.freeItemClass + "' href='" + value + "' tabindex='-1'>" + property + "</a>";
+//					}
+//				});
+//				listItem += ")</span>";
+//			}
 
 			// The title is given next in the HTML otherwise the float:right on the free media corrupts in IE6/7
-			listItem += "<a href='javascript:;' class='" + this.options.playlistOptions.itemClass + "' tabindex='0'>" + media.title + (media.artist ? " <span class='jp-artist'>by " + media.artist + "</span>" : "") + "</a>";
-			listItem += "</div></li>";
+			listItem += "<div class='col-md-6 col-lg-6 track-text'><a href='javascript:;' class='" + this.options.playlistOptions.itemClass + "' tabindex='0'>" + (media.author ? " <span class='jp-artist'>" + media.author + "</span>" : "") + " - " + media.title + "</a></div>";
+            listItem += "<div class='col-md-2 col-lg-2 track-details'><button type='button' class='btn btn-default'>Details</button></div>";
+            listItem += "</li>";
 
 			return listItem;
 		},
