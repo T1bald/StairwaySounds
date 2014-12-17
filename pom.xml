@@ -10,6 +10,7 @@
      <module>ss-core-ejb</module>
      <module>ss-general-web</module>
       <module>ss-ear</module>
+      <module>ss-rest-api</module>
   </modules>
 
   <packaging>pom</packaging>

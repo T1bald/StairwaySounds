@@ -42,6 +42,13 @@ $(document).ready(function(){
             poster: "http://www.smashingmagazine.com/images/music-cd-covers/64.jpg"
         },
         {
+            author:"Mr.Carmack",
+            title:"Kick it Up",
+            discription: "Текст песни / описание",
+            mp3:"/media/Mr.Carmack-Day6KickItUp.mp3",
+            poster: "http://www.dancerebels.com/wp-content/uploads/2014/02/artworks-000071197404-88vzx6-t500x500.jpg"
+        },
+        {
             author:"Miaow",
             title:"Hidden",
             discription: "Текст песни / описание",

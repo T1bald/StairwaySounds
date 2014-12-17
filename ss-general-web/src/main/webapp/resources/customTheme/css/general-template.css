@@ -134,6 +134,11 @@ body {
 .jp-playlist-current {
     background-color: #666;
 }
+.jp-playlist-current .track-details button {
+    background-color: #666;
+    color: #ffffff;
+    /*font-weight: bold;*/
+}
 #footer{
     height: 60px;
 }
@@ -146,7 +151,7 @@ body {
 .track-details {
     margin-top: 30px;
     vertical-align: middle;
-    width: 415px;
+    width: 400px;
 }
 .track-text a:link,
 .track-text a:visited,
@@ -173,6 +178,9 @@ body {
 }
 .track-details {
     text-align: right;
+}
+.track-details button {
+    background-color: #f2f2f2;
 }
 .track-item {
     padding-top: 15px;
