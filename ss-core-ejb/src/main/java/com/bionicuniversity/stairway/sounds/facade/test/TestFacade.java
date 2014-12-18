@@ -1,8 +1,7 @@
 package com.bionicuniversity.stairway.sounds.facade.test;
 
 import javax.ejb.Stateless;
-import javax.enterprise.context.Dependent;
-import javax.inject.Named;
+import javax.el.StaticFieldELResolver;
 import java.io.Serializable;
 
 /**
@@ -12,14 +11,28 @@ import java.io.Serializable;
 @Stateless
 public class TestFacade implements TestFacadeLocal, Serializable{
 
-    private String message = "test facade message";
 
-    public String message() {
-         return "message from Test Facade";
+    public String message = "test facade message";
+
+    public String getSecondMessage() {
+        return secondMessage;
     }
 
-    public void test() {
-        System.out.println("-----------------------test is " +
+    public void setSecondMessage(String secondMessage) {
+        this.secondMessage = secondMessage;
+    }
+
+    public String secondMessage = "second message test" ;
+
+    public TestFacade(){
+
+    }
+
+    public void  test(){
+
+        setSecondMessage("Hello from a second message");
+
+        System.out.println( "-----------------------test is " +
                 "running!----------------------");
     }
 

@@ -1,6 +1,7 @@
-package com.bionicuniversity.stairway.sounds.bean.view;
+package com.bionicuniversity.stairway.sounds.test.bean;
 
-import javax.enterprise.context.RequestScoped;
+
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
@@ -9,12 +10,15 @@ import java.io.Serializable;
  */
 
 @Named
-@RequestScoped
+@SessionScoped
 public class HelloBean implements Serializable{
+
+    public HelloBean(){
+    }
 
     private String message = "Hello From Managed Bean!";
 
-    private String name;
+    private String inputVar = "";
 
     public String getMessage() {
         return message;
@@ -24,11 +28,11 @@ public class HelloBean implements Serializable{
         this.message = message;
     }
 
-    public String getName() {
-        return name;
+    public String getInputVar() {
+        return inputVar;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setInputVar(String inputVar) {
+        this.inputVar = inputVar;
     }
 }

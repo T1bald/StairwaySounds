@@ -8,4 +8,13 @@ import javax.ejb.Local;
 
 @Local
 public interface TestFacadeLocal {
+
+    public void  test();
+
+    public void setMessage(String message);
+
+    public String getMessage();
+
+    public void setSecondMessage(String secondMessage);
+
 }
