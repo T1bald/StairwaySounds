@@ -1,8 +1,12 @@
 package com.bionicuniversity.stairway.sounds;
 
+import com.bionicuniversity.stairway.sounds.facade.user.UserFacade;
+import com.bionicuniversity.stairway.sounds.facade.user.UserFacadeLocal;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+
+import javax.inject.Inject;
 
 /**
  * Unit test for simple App.
@@ -35,4 +39,6 @@ public class AppTest
     {
         assertTrue( true );
     }
+
+
 }

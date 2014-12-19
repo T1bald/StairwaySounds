@@ -13,7 +13,7 @@
 
     <!-- Welcome page -->
     <welcome-file-list>
-        <welcome-file>test.xhtml</welcome-file>
+        <welcome-file>login.xhtml</welcome-file>
     </welcome-file-list>
 
     <!-- JSF mapping -->

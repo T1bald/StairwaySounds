@@ -27,6 +27,8 @@ public abstract class AbstractFacade<T extends AbstractEntity> {
     }
 
     public T findById(Object id) {
+        System.out.println
+                ("-------------------AbstractFacade-----------------");
         return getEntityManager().find(classType, id);
     }
 

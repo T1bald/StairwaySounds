@@ -16,7 +16,6 @@
         <h:outputText value="#{helloBean.message}"/><br/>
         <h:commandButton value="get facade message"
                          action="#{testBean.getFacadeInfo()}"/><br/>
-        <h:commandButton value="test" action="#{testBean.button}"/>
 
 
     </h:form><br/>
@@ -28,7 +27,8 @@
     </h:form><br/>
 
     <h:outputText value="#{testBean.facadeMessage}"/><br/>
-    <h:outputText value="Hello #{helloBean.inputVar}!"/><br>
+    <h:outputText value="Hello #{helloBean.inputVar}!"/><br/>
+    <h:outputLink value="registration.xhtml">Log in</h:outputLink>
 
 </h:body>
 </html>

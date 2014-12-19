@@ -10,9 +10,12 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @AttributeOverride(name = "id", column = @Column(name = "id_user"))
-//@NamedQueries(
-//        @NamedQuery(name = "UserByEmail", query = "")
-//)
+@NamedQueries({
+        @NamedQuery(name = "findUserByEmail", query = "select u from User u " +
+                "where" +
+                " u.email = :em"),
+        @NamedQuery(name= "findAllUsers", query = "select u from User u")
+})
 public class User extends AbstractEntity {
 
     @Column(name = "email")
@@ -29,6 +32,9 @@ public class User extends AbstractEntity {
 
     @Column(name = "password", length = 64)
     private String password;
+
+    @Transient
+    private boolean isLogged = false;
 
     @ManyToMany
     @JoinTable(
@@ -111,6 +117,14 @@ public class User extends AbstractEntity {
 
     public void setSubscribedHashTagList(List<Hashtag> subscribedHashTagList) {
         this.subscribedHashTagList = subscribedHashTagList;
+    }
+
+    public boolean isLogged() {
+        return isLogged;
+    }
+
+    public void setLogged(boolean isLoged) {
+        this.isLogged = isLoged;
     }
 
     @Override
