@@ -27,10 +27,16 @@
             <type>ejb</type>
         </dependency>
 
-        <!-- War Module -->
+        <!-- War Modules -->
         <dependency>
             <groupId>com.bionicuniversity.stairway.sounds</groupId>
             <artifactId>ss-general-web</artifactId>
+            <version>${stairway.sounds.version}</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>com.bionicuniversity.stairway.sounds</groupId>
+            <artifactId>ss-rest-api</artifactId>
             <version>${stairway.sounds.version}</version>
             <type>war</type>
         </dependency>
@@ -55,6 +61,12 @@
                         <webModule>
                             <groupId>com.bionicuniversity.stairway.sounds</groupId>
                             <artifactId>ss-general-web</artifactId>
+                            <contextRoot>/</contextRoot>
+                        </webModule>
+                        <webModule>
+                            <groupId>com.bionicuniversity.stairway.sounds</groupId>
+                            <artifactId>ss-rest-api</artifactId>
+                            <contextRoot>/rest</contextRoot>
                         </webModule>
                         <ejbModule>
                             <groupId>com.bionicuniversity.stairway.sounds</groupId>
