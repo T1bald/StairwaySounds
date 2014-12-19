@@ -13,26 +13,26 @@
     <h:body>
         <h:form>
             <h:panelGrid columns="3">
-                <h:outputText value="Username:" style="font-weight: bold"/>
+                <h:outputText value="Email: " style="font-weight: bold"/>
                 <h:inputText
                         required="true"
                         requiredMessage="The email is required!"
-                        value="#{userLoginLogic.userEmail}"
+                        value="#{loginBean.userEmail}"
                         id="username"/>
                 <h:message for="username" class="error_message"/>
 
-                <h:outputText value="Password:" style="font-weight: bold"/>
+                <h:outputText value="Password: " style="font-weight: bold"/>
                 <h:inputSecret
                         required="true"
                         requiredMessage="The password is required!"
-                        value="#{userLoginLogic.userPassword}"
+                        value="#{loginBean.userPassword}"
                         id="pass"/>
                 <h:message for="pass" class="error_message"/>
 
             </h:panelGrid>
 
             <h:commandButton value="login"
-                             action="#{userLoginLogic.loginButton}"/>
+                             action="#{loginBean.loginButton}"/>
         </h:form>
         <h:form>
             <h:commandButton value="sign up"

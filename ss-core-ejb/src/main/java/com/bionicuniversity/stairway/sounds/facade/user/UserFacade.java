@@ -28,12 +28,6 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal{
         return entityManager;
     }
 
-    @Override
-    public User findById(Object id) {
-        EntityManager em = getEntityManager();
-        return em.find(User.class, id);
-    }
-
     public User findByEmail(String email){
         User user = null;
         try {
@@ -41,7 +35,7 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal{
             user = (User) entityManager.createNamedQuery("findUserByEmail")
                     .setParameter("em", email).getResultList().get(0);
 
-        } catch (ArrayIndexOutOfBoundsException outofbounds){
+        } catch (ArrayIndexOutOfBoundsException outofbounds) {
             outofbounds.printStackTrace();
             return null;
         }

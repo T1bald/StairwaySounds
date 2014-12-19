@@ -7,6 +7,8 @@ import java.util.List;
  * Created by happy on 13/11/2014.
  */
 
+/*TODO: fix bug with duplicating entries in users table*/
+
 @Entity
 @Table(name = "users")
 @AttributeOverride(name = "id", column = @Column(name = "id_user"))

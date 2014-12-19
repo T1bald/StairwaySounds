@@ -1,4 +1,4 @@
-package com.bionicuniversity.stairway.sounds.main.logic;
+package com.bionicuniversity.stairway.sounds.main.logic.login;
 
 
 import com.bionicuniversity.stairway.sounds.entity.User;
@@ -20,7 +20,7 @@ import java.io.Serializable;
 
 @ManagedBean
 @SessionScoped
-public class UserLoginLogic implements Serializable {
+public class LoginBean implements Serializable {
 
     @EJB
     private UserFacadeLocal userFacadeLocal;
@@ -32,11 +32,11 @@ public class UserLoginLogic implements Serializable {
 
 
 
-    private String userTestMessage = "UserLoginLogic Test Message. If you see" +
+    private String userTestMessage = "Login Bean Test Message. If you see" +
             " it," +
             " everything works properly!";
 
-    public UserLoginLogic() {
+    public LoginBean() {
     }
 
     @PostConstruct

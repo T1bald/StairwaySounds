@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title> Registration </title>
+    <h:outputStylesheet lybrary="css" name="error.css"/>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h:panelGrid columns="3" bodyrows="4">
+
+                <h:outputText value="Email: " style="font-weight: bold"/>
+                <h:inputText
+                        required="true"
+                        requiredMessage="The email is required!"
+                        value="#{registrationBean.userEmail}"
+                        id="mail"/>
+                <h:message for="mail" class="error_message"/>
+
+                <h:outputText value="Username: " style="font-weight: bold"/>
+                <h:inputText
+                        value="#{registrationBean.userName}"
+                        id="username"/>
+                <h:message for="mail" class="error_message"/>
+
+                <h:outputText value="Password: " style="font-weight: bold"/>
+                <h:inputSecret
+                        required="true"
+                        requiredMessage="The password is required!"
+                        value="#{registrationBean.userPassword}"
+                        id="pass1"/>
+                <h:message for="pass1" class="error_message"/>
+
+                <h:outputText value="Repeat Passworsd: " style="font-weight: bold"/>
+                <h:inputSecret
+                        required="true"
+                        requiredMessage="The password is required!"
+                        value="#{registrationBean.userPasswordCheck}"
+                        id="pass2"/>
+                <h:message for="pass2" class="error_message"/>
+
+        <h:commandButton value="register"
+                         id="regBtn"
+                         action="#{registrationBean.register}"/>
+        </h:panelGrid>
+   </h:form>
+
+    <h:form>
+        <h:commandButton value="cancel" action="login" id="cancBtn"/>
+    </h:form>
+
+</h:body>
+
+</html>
