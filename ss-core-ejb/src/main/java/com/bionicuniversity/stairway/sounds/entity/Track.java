@@ -8,6 +8,18 @@ import java.util.List;
  */
 @Entity
 @Table(name = "tracks")
+//@NamedNativeQueries(
+//        @NamedNativeQuery(name = "findPopularTracks",
+//                query = "SELECT sst.* from stairway_sounds.tracks AS sst " +
+//                        "INNER JOIN stairway_sounds.raitings AS ssr " +
+//                        "ON sst.raiting_id = ssr.id_raiting " +
+//                        "GROUP BY ssr.downloads DESC;",
+//                resultClass = Track.class)
+//)
+@NamedQueries(
+        @NamedQuery(name = "findTracksByAmount",
+                    query = "SELECT t FROM Track t")
+)
 @AttributeOverride(name = "id", column = @Column(name = "id_track"))
 public class Track extends AbstractEntity {
 
@@ -28,9 +40,11 @@ public class Track extends AbstractEntity {
     private Album album;
 
     @OneToOne
+    @JoinColumn(name = "raiting_id")
     private Raiting raiting;
 
     @OneToOne
+    @JoinColumn(name = "track_info_id")
     private TrackAdditionalInfo additionalInfo;
 
     @ManyToMany

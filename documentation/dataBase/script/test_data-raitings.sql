@@ -1,0 +1,12 @@
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(1,200);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(2,200);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(3,130);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(4,700);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(5,100);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(6,230);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(7,270);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(8,280);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(9,400);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(10,500);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(11,400);
+INSERT INTO `stairway_sounds`.`raitings` (`id_raiting`,`downloads`) VALUES(12,20);

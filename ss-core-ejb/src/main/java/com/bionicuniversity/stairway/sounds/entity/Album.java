@@ -17,8 +17,8 @@ public class Album extends AbstractEntity {
     @Column(name = "description", length = 65535)
     private String description;
 
-    @Column(name = "cover", nullable = true, insertable = true, updatable = true)
-    private byte[] cover;
+    @Column(name = "cover")
+    private String cover;
 
     @ManyToOne
     @JoinColumn(name = "artist_id", referencedColumnName = "id_artist")
@@ -40,11 +40,11 @@ public class Album extends AbstractEntity {
         this.description = description;
     }
 
-    public byte[] getCover() {
+    public String getCover() {
         return cover;
     }
 
-    public void setCover(byte[] cover) {
+    public void setCover(String cover) {
         this.cover = cover;
     }
 
@@ -65,7 +65,7 @@ public class Album extends AbstractEntity {
         Album album = (Album) o;
 
         if (artist != null ? !artist.equals(album.artist) : album.artist != null) return false;
-        if (!Arrays.equals(cover, album.cover)) return false;
+        if (cover != null ? !cover.equals(album.cover) : album.cover != null) return false;
         if (description != null ? !description.equals(album.description) : album.description != null) return false;
         if (name != null ? !name.equals(album.name) : album.name != null) return false;
 
@@ -77,7 +77,7 @@ public class Album extends AbstractEntity {
         int result = super.hashCode();
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (cover != null ? Arrays.hashCode(cover) : 0);
+        result = 31 * result + (cover != null ? cover.hashCode() : 0);
         result = 31 * result + (artist != null ? artist.hashCode() : 0);
         return result;
     }
@@ -87,7 +87,7 @@ public class Album extends AbstractEntity {
         final StringBuilder sb = new StringBuilder("Album{");
         sb.append("name='").append(name).append('\'');
         sb.append(", description='").append(description).append('\'');
-        sb.append(", cover=").append(Arrays.toString(cover));
+        sb.append(", cover=").append(cover);
         sb.append(", artist=").append(artist);
         sb.append("} ");
         sb.append(super.toString());

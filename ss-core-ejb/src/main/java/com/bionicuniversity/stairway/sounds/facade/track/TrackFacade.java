@@ -3,14 +3,19 @@ package com.bionicuniversity.stairway.sounds.facade.track;
 import com.bionicuniversity.stairway.sounds.entity.Track;
 import com.bionicuniversity.stairway.sounds.facade.AbstractFacade;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import java.util.List;
 
 /**
  * Created by happy on 17/12/2014.
  */
-public class TrackFacade extends AbstractFacade implements TrackFacadeLocal{
+
+@Stateless
+public class TrackFacade extends AbstractFacade<Track> implements TrackFacadeLocal{
 
     @PersistenceContext(unitName = "SSPUnit")
     private EntityManager entityManager;
@@ -19,35 +24,21 @@ public class TrackFacade extends AbstractFacade implements TrackFacadeLocal{
         super(Track.class);
     }
 
-
-
     @Override
     protected EntityManager getEntityManager() {
-        return null;
+        return entityManager;
     }
 
     @Override
-    public List<Track> findPopularTracks(int amount) {
-        return null;
-    }
+    public List<Track> findPopularTracks() {
+//        TypedQuery<Track> query = entityManager.createNamedQuery("findPopularTracks", Track.class);
 
-    @Override
-    public Object insert(Object entity) {
-        return null;
-    }
+        TypedQuery<Track> query = entityManager.createNamedQuery("findTracksByAmount", Track.class);
 
-    @Override
-    public Object insertOrUpdate(Object entity) {
-        return null;
-    }
-
-    @Override
-    public Object markAsDeleted(Object entity) {
-        return null;
-    }
-
-    @Override
-    public Object remove(Object entity) {
-        return null;
+        List<Track> trackList = query.getResultList();
+        for (int i = 0; i < trackList.size(); i++) {
+            System.out.println(trackList.get(i).toString());
+        }
+        return trackList;
     }
 }
