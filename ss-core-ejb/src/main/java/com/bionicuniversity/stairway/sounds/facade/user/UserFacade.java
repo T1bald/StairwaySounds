@@ -50,10 +50,7 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal{
     }
 
     public User findByToken(String token){
-        /*TODO: add token to users table & replace by named query*/
-
-        /*HardCode*/
-        return (User) entityManager.createNamedQuery("findAllUsers")
+       return (User) entityManager.createNamedQuery("findUserByToken")
                 .getResultList()
                 .get(0);
     }
