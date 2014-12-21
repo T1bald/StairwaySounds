@@ -62,6 +62,7 @@ public class RegistrationBean implements Serializable {
 
         /*Generate validation token and write it to users entity*/
         user.setToken(UUID.randomUUID().toString());
+        user.setRegistrationStatus(user.UNCONFIRMED_REG_STATUS);
         userFacadeLocal.insert(user);
 
     }
@@ -109,7 +110,6 @@ public class RegistrationBean implements Serializable {
             return false;
         }
     }
-
 
     public void validate(String token){
         User toBeValidated = userFacadeLocal.findByToken(token);

@@ -7,10 +7,6 @@ import java.util.List;
  * Created by happy on 13/11/2014.
  */
 
-/*TODO: fix bug with duplicating entries in users table*/
-
-/*TODO add token and RegistrationStatus rows to users table in database*/
-
 @Entity
 @Table(name = "users")
 @AttributeOverride(name = "id", column = @Column(name = "id_user"))
@@ -19,8 +15,8 @@ import java.util.List;
                 "where" +
                 " u.email = :em"),
         @NamedQuery(name= "findAllUsers", query = "select u from User u"),
-        /*@NamedQuery(name="findUserByToken", query = "select u from User u " +
-        "where u.token = :token")*/
+        @NamedQuery(name="findUserByToken", query = "select u from User u " +
+        "where u.token = :token"),
 })
 public class User extends AbstractEntity {
 
@@ -46,10 +42,11 @@ public class User extends AbstractEntity {
     @Column(name = "password", length = 64)
     private String password;
 
-    @Transient
+    @Column
     private String token;
 
-    @Transient int registrationStatus;
+    @Column(name="registration_status")
+    private int registrationStatus;
 
     @ManyToMany
     @JoinTable(
