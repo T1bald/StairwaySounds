@@ -10,10 +10,22 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @AttributeOverride(name = "id", column = @Column(name = "id_user"))
-//@NamedQueries(
-//        @NamedQuery(name = "UserByEmail", query = "")
-//)
+@NamedQueries({
+        @NamedQuery(name = "findUserByEmail", query = "select u from User u " +
+                "where" +
+                " u.email = :em"),
+        @NamedQuery(name= "findAllUsers", query = "select u from User u"),
+        @NamedQuery(name="findUserByToken", query = "select u from User u " +
+        "where u.token = :token"),
+})
 public class User extends AbstractEntity {
+
+    @Transient
+    public static final int UNCONFIRMED_REG_STATUS = -1;
+    @Transient
+    public static final int CONFIRMED_REG_STATUS = 1;
+
+
 
     @Column(name = "email")
     private String email;
@@ -29,6 +41,12 @@ public class User extends AbstractEntity {
 
     @Column(name = "password", length = 64)
     private String password;
+
+    @Column
+    private String token;
+
+    @Column(name="registration_status")
+    private int registrationStatus;
 
     @ManyToMany
     @JoinTable(
@@ -48,6 +66,14 @@ public class User extends AbstractEntity {
             inverseJoinColumns = @JoinColumn(name = "hashtag_id", referencedColumnName = "id_hashtag")
     )
     private List<Hashtag> subscribedHashTagList;
+
+    public int getRegistrationStatus() {
+        return registrationStatus;
+    }
+
+    public void setRegistrationStatus(int registrationStatus) {
+        this.registrationStatus = registrationStatus;
+    }
 
     public String getEmail() {
         return email;
@@ -111,6 +137,14 @@ public class User extends AbstractEntity {
 
     public void setSubscribedHashTagList(List<Hashtag> subscribedHashTagList) {
         this.subscribedHashTagList = subscribedHashTagList;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     @Override
