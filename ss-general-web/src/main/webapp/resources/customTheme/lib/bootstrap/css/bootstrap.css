@@ -268,12 +268,12 @@ th {
   font-family: 'Glyphicons Halflings';
 
   /*src: url('../fonts/glyphicons-halflings-regular.eot');*/
-  src: url("#{resource['lib/bootstrap/fonts/glyphicons-halflings-regular.eot']}");
+  src: url("#{resource['customTheme/lib/bootstrap/fonts/glyphicons-halflings-regular.eot']}");
   /*src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),*/
-  src: url("#{resource['lib/bootstrap/fonts/glyphicons-halflings-regular.eot']}&#iefix") format('embedded-opentype'),
-  url("#{resource['lib/bootstrap/fonts/glyphicons-halflings-regular.woff']}") format('woff'),
-  url("#{resource['lib/bootstrap/fonts/glyphicons-halflings-regular.ttf']}") format('truetype'),
-  url("#{resource['lib/bootstrap/fonts/glyphicons-halflings-regular.svg']}#glyphicons_halflingsregular") format('svg');
+  src: url("#{resource['customTheme/lib/bootstrap/fonts/glyphicons-halflings-regular.eot']}&#iefix") format('embedded-opentype'),
+  url("#{resource['customTheme/lib/bootstrap/fonts/glyphicons-halflings-regular.woff']}") format('woff'),
+  url("#{resource['customTheme/lib/bootstrap/fonts/glyphicons-halflings-regular.ttf']}") format('truetype'),
+  url("#{resource['customTheme/lib/bootstrap/fonts/glyphicons-halflings-regular.svg']}#glyphicons_halflingsregular") format('svg');
 }
 .glyphicon {
   position: relative;

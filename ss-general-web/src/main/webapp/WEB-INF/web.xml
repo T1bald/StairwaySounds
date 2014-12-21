@@ -17,6 +17,10 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 
     <security-constraint>
         <display-name>Administrator</display-name>
@@ -63,8 +67,8 @@
         <auth-method>FORM</auth-method>
         <realm-name>stairway_sounds_jdbc_realm</realm-name>
         <form-login-config>
-            <form-login-page>/xhtml/login.html</form-login-page>
-            <form-error-page>/xhtml/error.html?error=unknown</form-error-page>
+            <form-login-page>/pages/html/login.html</form-login-page>
+            <form-error-page>/pages/html/error.html?error=unknown</form-error-page>
         </form-login-config>
     </login-config>
     <security-role>
@@ -78,6 +82,6 @@
     </security-role>
     <error-page>
         <error-code>403</error-code>
-        <location>/xhtml/403.html</location>
+        <location>/pages/html/403.html</location>
     </error-page>
 </web-app>

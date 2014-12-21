@@ -273,7 +273,7 @@
 
 			// The title is given next in the HTML otherwise the float:right on the free media corrupts in IE6/7
 			listItem += "<div class='col-md-6 col-lg-6 track-text'><a href='javascript:;' class='" + this.options.playlistOptions.itemClass + "' tabindex='0'>" + (media.author ? " <span class='jp-artist'>" + media.author + "</span>" : "") + " - " + media.title + "</a></div>";
-            listItem += "<div class='col-md-2 col-lg-2 track-details'><button type='button' class='btn btn-default'>Details</button></div>";
+            listItem += "<div class='col-md-2 col-lg-2 track-details'><button onclick='location.href=\"track?id=" + media.id + "\"' type='button' class='btn btn-default'>Details</button></div>";
             listItem += "</li>";
 
 			return listItem;

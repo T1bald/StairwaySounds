@@ -16,3 +16,7 @@ INSERT INTO `stairway_sounds`.`albums`(`id_album`, `name`, `description`, `cover
 (8,'Jolly Christmas','Jolly Christmas album description','frank_sinatra-65568125.jpg', 3);
 INSERT INTO `stairway_sounds`.`albums`(`id_album`, `name`, `description`, `cover`, `artist_id`) VALUES
 (9,'Somewhere Else','Somewhere Else album description','zeds_dead-73868125.jpg', 6);
+INSERT INTO `stairway_sounds`.`albums`(`id_album`, `name`, `description`, `cover`, `artist_id`) VALUES
+(10,'Plastic Beach','Plastic Beach album description','gorillaz-82610659.jpg', 10);
+INSERT INTO `stairway_sounds`.`albums`(`id_album`, `name`, `description`, `cover`, `artist_id`) VALUES
+(11,'Push The Button','Button description','chemical_brothers-81701525.jpg', 11);

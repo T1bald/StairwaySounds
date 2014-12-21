@@ -29,11 +29,18 @@
                             <li><a href="#" class="header">About</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle header" data-toggle="dropdown" role="button" aria-expanded="false">Sign <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#" class="header">Sign In</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#" class="header">Sign Up</a></li>
-                                </ul>
+                                <h:panelGroup rendered="#{empty request.remoteUser}">
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="/signin" class="header">Sign In</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#" class="header">Sign Up</a></li>
+                                    </ul>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{not empty request.remoteUser}">
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#" class="header">Sign Out</a></li>
+                                    </ul>
+                                </h:panelGroup>
                             </li>
                         </ul>
                     </div><!-- /.navbar-collapse -->

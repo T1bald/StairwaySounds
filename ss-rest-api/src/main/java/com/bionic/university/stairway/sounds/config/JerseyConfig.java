@@ -15,12 +15,6 @@ import javax.ws.rs.ApplicationPath;
 public class JerseyConfig extends ResourceConfig{
 
     public JerseyConfig() {
-//        register(new AbstractBinder() {
-//            @Override
-//            protected void configure() {
-//                bind(TrackFacade.class).to(TrackFacadeLocal.class);
-//            }
-//        });
         register(TrackResource.class);
     }
 }

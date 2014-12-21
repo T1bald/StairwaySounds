@@ -17,10 +17,7 @@
     <f:facet name="second">
         <h:outputStylesheet library="customTheme" name="css/reset.css"/>
         <h:outputStylesheet library="customTheme" name="lib/bootstrap/yeti-theme/bootstrap.css"/>
-        <!--<h:outputStylesheet name="customTheme/lib/jplayer/skin/jplayer.blue.monday.css"/>-->
         <h:outputStylesheet library="customTheme" name="css/general-template.css"/>
-        <!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />-->
-        <!--<script type="text/javascript" src="resources/lib/jPlayer/jquery.jplayer.js"/>-->
 
         <h:outputScript library="customTheme" name="lib/jquery/jquery-2.1.1.min.js" target="body"/>
         <h:outputScript library="customTheme" name="lib/bootstrap/js/bootstrap.js" target="body"/>
@@ -28,35 +25,17 @@
         <h:outputScript library="customTheme" name="lib/jplayer/jplayer.playlist.js" target="body"/>
         <h:outputScript library="customTheme" name="js/player.js" target="body"/>
     </f:facet>
-
-
 </h:head>
-
-
-
 
 <h:body>
     <div id="header">
         <ui:insert name="header">
-            <ui:include src="header.xhtml"/>
+            <ui:include src="../parts/header.xhtml"/>
         </ui:insert>
     </div><div id="player">
         <ui:insert name="player">
-            <ui:include src="player.xhtml"/>
+            <ui:include src="../parts/player.xhtml"/>
         </ui:insert>
     </div>
-    <!--<div>-->
-        <!--<ui:insert name="footer-player">-->
-            <!--<ui:include src="footer-player.xhtml"/>-->
-        <!--</ui:insert>-->
-    <!--</div>-->
-    <!--<div>-->
-    <!--<ui:include src="xhtml/player.xhtml"/>-->
-    <!--</div>-->
-    <!--<br/>-->
-    <!--<h:form>-->
-    <!--<p:editor value="#{editor.value}" />-->
-    <!--</h:form>-->
-
 </h:body>
 </html>
