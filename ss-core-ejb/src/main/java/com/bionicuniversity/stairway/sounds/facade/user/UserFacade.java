@@ -6,10 +6,13 @@ import com.bionicuniversity.stairway.sounds.facade.AbstractFacade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by happy on 11/11/2014.
+ *
  */
+
 @Stateless
 public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal{
 
@@ -24,4 +27,32 @@ public class UserFacade extends AbstractFacade<User> implements UserFacadeLocal{
     protected EntityManager getEntityManager() {
         return entityManager;
     }
+
+    public User findByEmail(String email){
+        User user = null;
+        try {
+
+            user = (User) entityManager.createNamedQuery("findUserByEmail")
+                    .setParameter("em", email).getResultList().get(0);
+
+        } catch (ArrayIndexOutOfBoundsException outofbounds) {
+            outofbounds.printStackTrace();
+            return null;
+        }
+            return user;
+
+        }
+
+    public List<User> findAll(){
+        List<User> usersList = entityManager.createNamedQuery
+                ("findAllUsers").getResultList();
+        return usersList;
+    }
+
+    public User findByToken(String token){
+       return (User) entityManager.createNamedQuery("findUserByToken")
+                .getResultList()
+                .get(0);
+    }
+
 }

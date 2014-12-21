@@ -11,4 +11,8 @@
         <pattern value="/signin" />
         <view-id value="/pages/html/login.html" />
     </url-mapping>
+    <url-mapping id="signup">
+        <pattern value="/signup"/>
+        <view-id value="/pages/xhtml/regist.xhtml"/>
+    </url-mapping>
 </pretty-config>
