@@ -1,11 +1,10 @@
-package com.bionicuniversity.stairway.sounds.main.logic.login;
+package com.bionicuniversity.stairway.sounds.logic.login;
 
 
 import com.bionicuniversity.stairway.sounds.entity.User;
 import com.bionicuniversity.stairway.sounds.facade.user.UserFacadeLocal;
-import com.bionicuniversity.stairway.sounds.main.logic.hash.PasswordHash;
+import com.bionicuniversity.stairway.sounds.logic.hash.PasswordHash;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;

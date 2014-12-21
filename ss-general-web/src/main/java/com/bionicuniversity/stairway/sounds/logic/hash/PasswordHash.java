@@ -1,4 +1,4 @@
-package com.bionicuniversity.stairway.sounds.main.logic.hash;
+package com.bionicuniversity.stairway.sounds.logic.hash;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

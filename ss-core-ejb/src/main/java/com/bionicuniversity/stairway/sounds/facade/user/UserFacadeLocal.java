@@ -18,22 +18,5 @@ public interface UserFacadeLocal extends GeneralFacadeLocal<User> {
     User findByEmail(String email);
 
     User findByToken(String token);
-
-    @Override
-    User insert(User entity);
-
-    @Override
-    User insertOrUpdate(User entity);
-
-    @Override
-    User findById(Object id);
-
-    @Override
-    User markAsDeleted(User entity);
-
-    @Override
-    User remove(User entity);
-
-
 }
 
