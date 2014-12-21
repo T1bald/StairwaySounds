@@ -9,6 +9,8 @@ import java.util.List;
 
 /*TODO: fix bug with duplicating entries in users table*/
 
+/*TODO add token and RegistrationStatus rows to users table in database*/
+
 @Entity
 @Table(name = "users")
 @AttributeOverride(name = "id", column = @Column(name = "id_user"))
@@ -16,9 +18,18 @@ import java.util.List;
         @NamedQuery(name = "findUserByEmail", query = "select u from User u " +
                 "where" +
                 " u.email = :em"),
-        @NamedQuery(name= "findAllUsers", query = "select u from User u")
+        @NamedQuery(name= "findAllUsers", query = "select u from User u"),
+        /*@NamedQuery(name="findUserByToken", query = "select u from User u " +
+        "where u.token = :token")*/
 })
 public class User extends AbstractEntity {
+
+    @Transient
+    public static final int UNCONFIRMED_REG_STATUS = -1;
+    @Transient
+    public static final int CONFIRMED_REG_STATUS = 1;
+
+
 
     @Column(name = "email")
     private String email;
@@ -36,7 +47,9 @@ public class User extends AbstractEntity {
     private String password;
 
     @Transient
-    private boolean isLogged = false;
+    private String token;
+
+    @Transient int registrationStatus;
 
     @ManyToMany
     @JoinTable(
@@ -56,6 +69,14 @@ public class User extends AbstractEntity {
             inverseJoinColumns = @JoinColumn(name = "hashtag_id", referencedColumnName = "id_hashtag")
     )
     private List<Hashtag> subscribedHashTagList;
+
+    public int getRegistrationStatus() {
+        return registrationStatus;
+    }
+
+    public void setRegistrationStatus(int registrationStatus) {
+        this.registrationStatus = registrationStatus;
+    }
 
     public String getEmail() {
         return email;
@@ -121,12 +142,12 @@ public class User extends AbstractEntity {
         this.subscribedHashTagList = subscribedHashTagList;
     }
 
-    public boolean isLogged() {
-        return isLogged;
+    public String getToken() {
+        return token;
     }
 
-    public void setLogged(boolean isLoged) {
-        this.isLogged = isLoged;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     @Override

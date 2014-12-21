@@ -8,7 +8,7 @@
 
 <h:head>
     <title> Registration </title>
-    <h:outputStylesheet lybrary="css" name="error.css"/>
+    <h:outputStylesheet lybrary="css" value="error.css"/>
 </h:head>
 
 <h:body>
@@ -27,7 +27,7 @@
                 <h:inputText
                         value="#{registrationBean.userName}"
                         id="username"/>
-                <h:message for="mail" class="error_message"/>
+                <h:message for="mail" class="username_message"/>
 
                 <h:outputText value="Password: " style="font-weight: bold"/>
                 <h:inputSecret

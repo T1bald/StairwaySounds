@@ -47,8 +47,6 @@
         <param-value>flick</param-value>
     </context-param>
 
-
-
     <!--&lt;!&ndash; Security Configurations&ndash;&gt;-->
     <!--<security-constraint>-->
         <!--<display-name>Administrator</display-name>-->

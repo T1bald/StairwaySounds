@@ -16,10 +16,6 @@ public abstract class AbstractFacade<T extends AbstractEntity> {
 
     protected abstract EntityManager getEntityManager();
 
-    /*TODO discuss insert and insertOrUpdate methods return values. Should it
-     *be entity type or boolean ?
-     */
-
     public T insert(T entity) {
         getEntityManager().persist(entity);
         return entity;
@@ -31,8 +27,6 @@ public abstract class AbstractFacade<T extends AbstractEntity> {
     }
 
     public T findById(Object id) {
-        System.out.println
-                ("-------------------AbstractFacade-----------------");
         return getEntityManager().find(classType, id);
     }
 

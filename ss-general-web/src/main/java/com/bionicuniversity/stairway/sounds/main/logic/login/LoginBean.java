@@ -30,18 +30,7 @@ public class LoginBean implements Serializable {
     private String userPassword;
     private boolean isLogged;
 
-
-
-    private String userTestMessage = "Login Bean Test Message. If you see" +
-            " it," +
-            " everything works properly!";
-
     public LoginBean() {
-    }
-
-    @PostConstruct
-    public void init() {
-        System.out.println("-------------------PostConstruct-----------------");
     }
 
     public String loginButton(){
@@ -62,12 +51,6 @@ public class LoginBean implements Serializable {
 
         isLogged = false;
         return false;
-    }
-
-    //test button
-    public void buttonSetAllUserNames(){
-        System.out.println("-------------------button---------------------");
-        userEmail = userFacadeLocal.findById(1).getEmail().toString();
     }
 
     public User getInjectedUser() {
@@ -107,13 +90,5 @@ public class LoginBean implements Serializable {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
-    }
-
-    public String getUserMessage() {
-        return userTestMessage;
-    }
-
-    public void setUserMessage(String userMessage) {
-        this.userTestMessage = userMessage;
     }
 }
