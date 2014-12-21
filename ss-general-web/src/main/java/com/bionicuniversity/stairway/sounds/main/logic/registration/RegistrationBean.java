@@ -2,8 +2,8 @@ package com.bionicuniversity.stairway.sounds.main.logic.registration;
 
 import com.bionicuniversity.stairway.sounds.entity.User;
 import com.bionicuniversity.stairway.sounds.facade.user.UserFacadeLocal;
+import com.bionicuniversity.stairway.sounds.main.logic.hash.PasswordHash;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
@@ -35,6 +35,7 @@ public class RegistrationBean implements Serializable {
     private String userName;
     private String userPassword;
     private String userPasswordCheck;
+//    private PasswordHash passwordHash;
 
     public RegistrationBean() {
     }
@@ -48,7 +49,8 @@ public class RegistrationBean implements Serializable {
 
             user.setEmail(userEmail);
             if (userName != null ) user.setUsername(userName);
-            user.setPassword(userPassword);
+            user.setPassword(userPassword = PasswordHash.sha256(userPassword));
+            System.out.println("userPassword : " + userPassword);
             save(user);
             sendConfirmationEmail(user);
 

@@ -3,6 +3,7 @@ package com.bionicuniversity.stairway.sounds.main.logic.login;
 
 import com.bionicuniversity.stairway.sounds.entity.User;
 import com.bionicuniversity.stairway.sounds.facade.user.UserFacadeLocal;
+import com.bionicuniversity.stairway.sounds.main.logic.hash.PasswordHash;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -41,7 +42,8 @@ public class LoginBean implements Serializable {
     public boolean loginValidation(String email, String password){
         User user = userFacadeLocal.findByEmail(email);
 
-        if(user != null && user.getPassword().equals(password)){
+        String shaPassword = PasswordHash.sha256(password);
+        if(user != null && shaPassword.equals(user.getPassword())){
 
             isLogged = true;
             loggedUser = user;
