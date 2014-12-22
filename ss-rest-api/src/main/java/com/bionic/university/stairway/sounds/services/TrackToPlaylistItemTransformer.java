@@ -27,6 +27,7 @@ public class TrackToPlaylistItemTransformer {
 
     public PlaylistItem transformEntity(Track track) {
         PlaylistItem item = new PlaylistItem();
+        item.setId(track.getId());
         item.setAuthor(track.getAlbum().getArtist().getPseudonym());
         item.setTitle(track.getTrackName());
         item.setMp3(propertyHandler.getProperty(ContentProperty.MUSIC.getProperty())

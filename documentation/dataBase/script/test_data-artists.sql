@@ -7,3 +7,5 @@ INSERT INTO `stairway_sounds`.`artists`(`id_artist`,`pseudonym`, `description`) 
 INSERT INTO `stairway_sounds`.`artists`(`id_artist`,`pseudonym`, `description`) VALUES (7,'Kanye West','Kanye West description');
 INSERT INTO `stairway_sounds`.`artists`(`id_artist`,`pseudonym`, `description`) VALUES (8,'Aphex Twin','Aphex Twin description');
 INSERT INTO `stairway_sounds`.`artists`(`id_artist`,`pseudonym`, `description`) VALUES (9,'Danger','Danger description');
+INSERT INTO `stairway_sounds`.`artists`(`id_artist`,`pseudonym`, `description`) VALUES (10,'Gorillaz','Gorillaz description');
+INSERT INTO `stairway_sounds`.`artists`(`id_artist`,`pseudonym`, `description`) VALUES (11,'Chemical Brothers','Brothers description');

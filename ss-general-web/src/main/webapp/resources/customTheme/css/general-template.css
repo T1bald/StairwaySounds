@@ -193,3 +193,12 @@ body {
 .header {
     font-size: 20px;
 }
+.keep-calm-crown-icon {
+    width: 42px;
+    height: 36px;
+    display: inline-block;
+    background: url("#{resource['customTheme/img/crown.png']}") no-repeat center;
+    /*background-color: #008cba;*/
+    background-size: cover;
+    margin-right: 10px;
+}

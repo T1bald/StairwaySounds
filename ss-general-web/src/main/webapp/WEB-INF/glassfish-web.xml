@@ -4,8 +4,8 @@ GlassFish Application Server 3.1 Servlet 3.0//EN"
 <glassfish-web-app>
     <!--<property name="alternatedocroot_1" value="from=/media/* dir=D:\ProjectSpace\BionicEE\PresentationProject\music-store"/>
     <property name="alternatedocroot_2" value="from=/cover/* dir=D:\ProjectSpace\BionicEE\PresentationProject\music-store"/>    -->
-    <property name="alternatedocroot_1" value="from=/media/* dir=F:\Bionic\res"/>
-    <property name="alternatedocroot_2" value="from=/cover/* dir=F:\Bionic\res"/>
+    <property name="alternatedocroot_1" value="from=/media/* dir=F:/Bionic/res"/>
+    <property name="alternatedocroot_2" value="from=/cover/* dir=F:/Bionic/res"/>
 
     <security-role-mapping>
         <role-name>Admin</role-name>
