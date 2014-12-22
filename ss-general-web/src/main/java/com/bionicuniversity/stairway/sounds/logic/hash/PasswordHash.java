@@ -23,8 +23,8 @@ public class PasswordHash {
             }
 
             StringBuffer hexString = new StringBuffer();
-            for (int i=0;i<mdBytes.length;i++) {
-                hexString.append(Integer.toHexString(0xFF & mdBytes[i]));
+            for (int i = 0; i < mdBytes.length; i++) {
+                hexString.append(Integer.toString((mdBytes[i] & 0xff) + 0x100, 16).substring(1));
             }
 
             return hexString.toString();
