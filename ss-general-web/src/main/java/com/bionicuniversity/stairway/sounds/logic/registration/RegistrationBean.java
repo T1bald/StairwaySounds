@@ -1,6 +1,8 @@
 package com.bionicuniversity.stairway.sounds.logic.registration;
 
+import com.bionicuniversity.stairway.sounds.entity.Role;
 import com.bionicuniversity.stairway.sounds.entity.User;
+import com.bionicuniversity.stairway.sounds.facade.role.RoleFacadeLocal;
 import com.bionicuniversity.stairway.sounds.facade.user.UserFacadeLocal;
 import com.bionicuniversity.stairway.sounds.logic.hash.PasswordHash;
 
@@ -11,6 +13,8 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -25,11 +29,14 @@ import java.util.UUID;
 @SessionScoped
 public class RegistrationBean implements Serializable {
 
+    private static final Integer USER_ROLE_ID = 2;
     private static final String DEFAULT_URL_PATTERN =
             "http://localhost:8080/ss-general-web/validate";
 
     @EJB
     private UserFacadeLocal userFacadeLocal;
+    @EJB
+    private RoleFacadeLocal roleFacadeLocal;
 
     private String userEmail;
     private String userName;
@@ -50,7 +57,9 @@ public class RegistrationBean implements Serializable {
             user.setEmail(userEmail);
             if (userName != null ) user.setUsername(userName);
             user.setPassword(userPassword = PasswordHash.sha256(userPassword));
-            System.out.println("userPassword : " + userPassword);
+            List<Role> roleList = new LinkedList<Role>();
+            roleList.add(getUserRole());
+            user.setRole(roleList);
             save(user);
             sendConfirmationEmail(user);
 
@@ -119,6 +128,10 @@ public class RegistrationBean implements Serializable {
             toBeValidated.setRegistrationStatus(User.CONFIRMED_REG_STATUS);
             userFacadeLocal.insertOrUpdate(toBeValidated);
         }
+    }
+
+    private Role getUserRole() {
+        return roleFacadeLocal.findById(USER_ROLE_ID);
     }
 
     public String getUserEmail() {
