@@ -92,4 +92,5 @@ public class LoginBean implements Serializable {
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
+
 }

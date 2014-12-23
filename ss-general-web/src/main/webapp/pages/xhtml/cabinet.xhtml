@@ -8,11 +8,33 @@
 
 <h:head>
     User's Page
+    <h:outputScript library="customTheme" name="lib/jquery/jquery-2.1.1.min.js" target="body"/>
+    <h:outputScript library="customTheme" name="lib/bootstrap/js/bootstrap.js" target="body"/>
 </h:head>
 <h:body>
-
+    <div id="header">
+        <ui:insert name="header">
+            <ui:include src="parts/header.xhtml"/>
+        </ui:insert>
+    </div>
     <h2>User Personal Page</h2>
-    <h:outputText value="You logged under #{loginBean.userEmail}"/>
+    <h:outputText value="You logged under #{loginBean.userEmail} "/>
+    #{cabinetBean.setCurrentUser(loginBean.userEmail)}
+    #{cabinetBean.loadPlayLists()}
+    <h4 style="font-weight: bold; color: #272727;">Albums</h4>
+    <h:form>
+        <h:commandButton value="+" style="font-size: 16px;" action="#{cabinetBean.redirectToCreationView()}"/>
+    </h:form>
+    <div id="PlayLists">
+       <ui:repeat value="#{cabinetBean.playLists}" var="playlist">
+        <li>
+            <h:button value="#{playlist.name}" onclick="#{cabinetBean.openPlayList(playlist.id)}">
+                <f:param name="id" value="#{playlist.id}"/>
+            </h:button>
+        </li>
+       </ui:repeat>
+    </div>
+
 
  </h:body>
 </html>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputScript library="customTheme" name="lib/jquery/jquery-2.1.1.min.js" target="body"/>
+    <h:outputScript library="customTheme" name="lib/bootstrap/js/bootstrap.js" target="body"/>
+</h:head>
+<h:body>
+    <h:form>
+        <h:outputText value="Name:" style="font-weight: bold;"/>
+        <h:inputText value="#{cabinetBean.newAlbumName}" required="true" requiredMessage="Enter the name of the playlist"/>
+        <br/>
+        <h:outputText value="Description:" style="font-weight: bold;"/>
+        <h:inputTextarea value="#{cabinetBean.newAlbumDescription}" required="false"/>
+        <h:commandButton value="Add Playlist" action="#{cabinetBean.createAlbum}"/>
+    </h:form>
+</h:body>
+</html>

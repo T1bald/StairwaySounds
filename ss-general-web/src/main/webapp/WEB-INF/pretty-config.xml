@@ -9,7 +9,7 @@
     </url-mapping>
     <url-mapping id="login">
         <pattern value="/signin" />
-        <view-id value="/pages/html/login.html" />
+        <view-id value="/pages/xhtml/login.xhtml" />
     </url-mapping>
     <url-mapping id="signup">
         <pattern value="/signup"/>
