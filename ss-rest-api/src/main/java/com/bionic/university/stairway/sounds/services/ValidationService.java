@@ -15,12 +15,14 @@ public class ValidationService {
     private static UserFacadeLocal userFacadeLocal;
 
     public static boolean validate(String token){
+        System.out.println("from Validation Service Begin=================");
         User toBeValidated = userFacadeLocal.findByToken(token);
 
-        if (!toBeValidated.equals(null) && toBeValidated.getRegistrationStatus()
-                == User.UNCONFIRMED_REG_STATUS){
+        if (toBeValidated.getRegistrationStatus() == User
+                .UNCONFIRMED_REG_STATUS) {
             toBeValidated.setRegistrationStatus(User.CONFIRMED_REG_STATUS);
             userFacadeLocal.insertOrUpdate(toBeValidated);
+            System.out.println("from Validation Service End=================");
             return true;
         }
 
