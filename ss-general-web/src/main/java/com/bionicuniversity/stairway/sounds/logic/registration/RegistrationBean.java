@@ -31,7 +31,7 @@ public class RegistrationBean implements Serializable {
 
     private static final Integer USER_ROLE_ID = 2;
     private static final String DEFAULT_URL_PATTERN =
-            "http://localhost:8080/ss-general-web/validate";
+            "http://localhost:8080/user/validate/";
 
     @EJB
     private UserFacadeLocal userFacadeLocal;
