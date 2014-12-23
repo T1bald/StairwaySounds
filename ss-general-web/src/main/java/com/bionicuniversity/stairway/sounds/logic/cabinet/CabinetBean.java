@@ -1,9 +1,12 @@
 package com.bionicuniversity.stairway.sounds.logic.cabinet;
 
 import com.bionicuniversity.stairway.sounds.entity.Playlist;
+import com.bionicuniversity.stairway.sounds.entity.Track;
 import com.bionicuniversity.stairway.sounds.entity.User;
 import com.bionicuniversity.stairway.sounds.facade.album.PlaylistFacade;
 import com.bionicuniversity.stairway.sounds.facade.album.PlaylistFacadeLocal;
+import com.bionicuniversity.stairway.sounds.facade.track.TrackFacade;
+import com.bionicuniversity.stairway.sounds.facade.track.TrackFacadeLocal;
 import com.bionicuniversity.stairway.sounds.facade.user.UserFacade;
 import com.bionicuniversity.stairway.sounds.facade.user.UserFacadeLocal;
 
@@ -29,10 +32,14 @@ public class CabinetBean implements Serializable{
     private PlaylistFacadeLocal playlistFacade;
     @EJB
     private UserFacadeLocal userFacade;
+    @EJB
+    private TrackFacadeLocal trackFacade;
 
     private User currentUser;
     private String newPlaylistName;
     private String newPlaylistDescription;
+    private Playlist selectedPlayList;
+    private List<Track> trackList;
 
     private List<Playlist> playLists;
 
@@ -48,14 +55,45 @@ public class CabinetBean implements Serializable{
         return "cabinet.xhtml";
     }
 
+    public String addToPlaylist(Integer trackId){
+
+        selectedPlayList.getTrackList().add(trackFacade.findById(trackId));
+        playlistFacade.insertOrUpdate(selectedPlayList);
+        return "playlist.xhtml";
+    }
+
     public String redirectToCreationView(){
         return "addPlayList.xhtml";
     }
 
 
     public String openPlayList(Integer id){
-        //TODO: open playList;
-        return "Not implemented yet" + id;
+        setSelectedPlayList(playlistFacade.findById(id));
+        return "playlist.xhtml";
+    }
+
+    public String addTrackToPlayList(){
+        return "addTrackToPlaylist.xhtml";
+    }
+
+    public void loadAllTracks(){
+         setTrackList(trackFacade.findPopularTracks());
+    }
+
+    public List<Track> getTrackList() {
+        return trackList;
+    }
+
+    public void setTrackList(List<Track> trackList) {
+        this.trackList = trackList;
+    }
+
+    public Playlist getSelectedPlayList() {
+        return selectedPlayList;
+    }
+
+    public void setSelectedPlayList(Playlist selectedPlayList) {
+        this.selectedPlayList = selectedPlayList;
     }
 
     public List<Playlist> getPlayLists() {
