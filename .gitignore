@@ -46,6 +46,7 @@ release.properties
 
 # IntelliJ
 out/
+ss-general-web/src/main/webapp/WEB-INF/glassfish-web.xml
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
