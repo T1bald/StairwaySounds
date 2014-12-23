@@ -65,6 +65,18 @@ public class Playlist extends AbstractEntity {
         this.trackList = trackList;
     }
 
+    @Override
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer getId(){
+        return super.getId();
+    }
+
+    @Override
+    public void setId(Integer value){
+        super.setId(value);
+    }
+
     public User getOwner() {
         return owner;
     }

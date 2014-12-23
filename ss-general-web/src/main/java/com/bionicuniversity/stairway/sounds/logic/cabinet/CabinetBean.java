@@ -9,7 +9,7 @@ import com.bionicuniversity.stairway.sounds.facade.user.UserFacadeLocal;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +18,11 @@ import java.util.List;
  * Created by user on 23.12.2014.
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class CabinetBean implements Serializable{
 
     public CabinetBean(){
         playLists = new ArrayList<Playlist>();
-
     }
 
     @EJB
@@ -32,16 +31,16 @@ public class CabinetBean implements Serializable{
     private UserFacadeLocal userFacade;
 
     private User currentUser;
-    private String newAlbumName;
-    private String newAlbumDescription;
+    private String newPlaylistName;
+    private String newPlaylistDescription;
 
     private List<Playlist> playLists;
 
-    public String createAlbum(){
-        if (!newAlbumName.isEmpty()) {
+    public String createPlaylist(){
+        if (!newPlaylistName.isEmpty()) {
             Playlist playlist = new Playlist();
-            playlist.setName(newAlbumName);
-            playlist.setDescription(newAlbumDescription);
+            playlist.setName(newPlaylistName);
+            playlist.setDescription(newPlaylistDescription);
             playlist.setOwner(currentUser);
             playlistFacade.insert(playlist);
             playLists.add(playlist);
@@ -75,20 +74,20 @@ public class CabinetBean implements Serializable{
         currentUser = userFacade.findByEmail(currentUserEmail);
     }
 
-    public String getNewAlbumName() {
-        return newAlbumName;
+    public String getNewPlaylistName() {
+        return newPlaylistName;
     }
 
-    public void setNewAlbumName(String newAlbumName) {
-        this.newAlbumName = newAlbumName;
+    public void setNewPlaylistName(String newAlbumName) {
+        this.newPlaylistName = newAlbumName;
     }
 
-    public String getNewAlbumDescription() {
-        return newAlbumDescription;
+    public String getNewPlaylistDescription() {
+        return newPlaylistDescription;
     }
 
-    public void setNewAlbumDescription(String newAlbumDescription) {
-        this.newAlbumDescription = newAlbumDescription;
+    public void setNewPlaylistDescription(String newAlbumDescription) {
+        this.newPlaylistDescription = newAlbumDescription;
     }
 
 }

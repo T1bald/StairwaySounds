@@ -28,9 +28,11 @@
     <div id="PlayLists">
        <ui:repeat value="#{cabinetBean.playLists}" var="playlist">
         <li>
-            <h:button value="#{playlist.name}" onclick="#{cabinetBean.openPlayList(playlist.id)}">
-                <f:param name="id" value="#{playlist.id}"/>
-            </h:button>
+            <h:form>
+                <h:commandButton value="#{playlist.name}" action="#{cabinetBean.openPlayList(playlist.id)}">
+                    <f:param name="id" value="#{playlist.id}"/>
+                </h:commandButton>
+            </h:form>
         </li>
        </ui:repeat>
     </div>

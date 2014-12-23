@@ -12,11 +12,11 @@
 <h:body>
     <h:form>
         <h:outputText value="Name:" style="font-weight: bold;"/>
-        <h:inputText value="#{cabinetBean.newAlbumName}" required="true" requiredMessage="Enter the name of the playlist"/>
+        <h:inputText value="#{cabinetBean.newPlaylistName}" required="true" requiredMessage="Enter the name of the playlist"/>
         <br/>
         <h:outputText value="Description:" style="font-weight: bold;"/>
-        <h:inputTextarea value="#{cabinetBean.newAlbumDescription}" required="false"/>
-        <h:commandButton value="Add Playlist" action="#{cabinetBean.createAlbum}"/>
+        <h:inputTextarea value="#{cabinetBean.newPlaylistDescription}" required="false"/>
+        <h:commandButton value="Add Playlist" action="#{cabinetBean.createPlaylist}"/>
     </h:form>
 </h:body>
 </html>
