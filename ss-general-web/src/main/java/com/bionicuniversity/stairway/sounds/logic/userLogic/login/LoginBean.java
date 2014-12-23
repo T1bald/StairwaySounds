@@ -1,4 +1,4 @@
-package com.bionicuniversity.stairway.sounds.logic.login;
+package com.bionicuniversity.stairway.sounds.logic.userLogic.login;
 
 
 import com.bionicuniversity.stairway.sounds.entity.User;

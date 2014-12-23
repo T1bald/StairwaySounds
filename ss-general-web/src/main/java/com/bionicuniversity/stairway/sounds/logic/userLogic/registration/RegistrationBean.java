@@ -1,4 +1,4 @@
-package com.bionicuniversity.stairway.sounds.logic.registration;
+package com.bionicuniversity.stairway.sounds.logic.userLogic.registration;
 
 import com.bionicuniversity.stairway.sounds.entity.Role;
 import com.bionicuniversity.stairway.sounds.entity.User;
