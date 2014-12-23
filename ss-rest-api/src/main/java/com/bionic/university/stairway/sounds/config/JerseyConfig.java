@@ -1,6 +1,7 @@
 package com.bionic.university.stairway.sounds.config;
 
 import com.bionic.university.stairway.sounds.resources.TrackResource;
+import com.bionic.university.stairway.sounds.resources.UserResource;
 import com.bionicuniversity.stairway.sounds.facade.track.TrackFacade;
 import com.bionicuniversity.stairway.sounds.facade.track.TrackFacadeLocal;
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
@@ -16,5 +17,6 @@ public class JerseyConfig extends ResourceConfig{
 
     public JerseyConfig() {
         register(TrackResource.class);
+        register(UserResource.class);
     }
 }
