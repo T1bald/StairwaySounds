@@ -59,7 +59,7 @@ public class Track extends AbstractEntity {
     @JoinTable(
             name = "tracks_have_styles",
             joinColumns = @JoinColumn(name = "track_id", referencedColumnName = "id_track"),
-            inverseJoinColumns = @JoinColumn(name = "styles_id", referencedColumnName = "id_style")
+            inverseJoinColumns = @JoinColumn(name = "style_id", referencedColumnName = "id_style")
     )
     private  List<Style> styleList;
 
